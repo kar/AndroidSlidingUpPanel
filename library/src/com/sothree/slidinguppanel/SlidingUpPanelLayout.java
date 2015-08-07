@@ -356,7 +356,6 @@ public class SlidingUpPanelLayout extends ViewGroup {
             } else {
                 mShadowDrawable = getResources().getDrawable(R.drawable.below_shadow);
             }
-
         } else {
             mShadowDrawable = null;
         }
@@ -623,6 +622,8 @@ public class SlidingUpPanelLayout extends ViewGroup {
 
     /**
      * Sets whether or not the main content is clipped to the top of the panel
+     *
+     * @param overlayed
      */
     public void setClipPanel(boolean clip) {
         mClipPanel = clip;
@@ -1039,10 +1040,8 @@ public class SlidingUpPanelLayout extends ViewGroup {
                 screenY >= viewLocation[1] && screenY < viewLocation[1] + view.getHeight();
     }
 
-    private int getScrollableViewScrollPosition() {
-        if (mScrollableView == null) {
-            return 0;
-        }
+    protected int getScrollableViewScrollPosition() {
+        if (mScrollableView == null) return 0;
         if (mScrollableView instanceof ScrollView) {
             if (mIsSlidingUp) {
                 return mScrollableView.getScrollY();
@@ -1063,10 +1062,9 @@ public class SlidingUpPanelLayout extends ViewGroup {
             } else {
                 View lastChild = lv.getChildAt(lv.getChildCount() - 1);
                 // Approximate the scroll position based on the bottom child and the last visible item
-                return (lv.getAdapter().getCount() - lv.getLastVisiblePosition() - 1) * lastChild.getHeight() + lastChild.getBottom() - lv
-                        .getBottom();
+                return (lv.getAdapter().getCount() - lv.getLastVisiblePosition() - 1) * lastChild.getHeight() + lastChild.getBottom() - lv.getBottom();
             }
-        } else if (mScrollableView instanceof RecyclerView && ((RecyclerView) mScrollableView).getChildCount() > 0) {
+        }else if (mScrollableView instanceof RecyclerView && ((RecyclerView) mScrollableView).getChildCount() > 0) {
             RecyclerView rv = ((RecyclerView) mScrollableView);
             if (rv.getAdapter() == null) {
                 return 0;
@@ -1191,8 +1189,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
 
         if (mSlideOffset <= 0 && !mOverlayContent) {
             // expand the main view
-            lp.height = mIsSlidingUp ? (newTop - getPaddingBottom()) : (getHeight() - getPaddingBottom() - mSlideableView
-                    .getMeasuredHeight() - newTop);
+            lp.height = mIsSlidingUp ? (newTop - getPaddingBottom()) : (getHeight() - getPaddingBottom() - mSlideableView.getMeasuredHeight() - newTop);
             mMainView.requestLayout();
         } else if (lp.height != defaultHeight && !mOverlayContent) {
             lp.height = defaultHeight;
@@ -1500,7 +1497,6 @@ public class SlidingUpPanelLayout extends ViewGroup {
             final TypedArray a = c.obtainStyledAttributes(attrs, ATTRS);
             a.recycle();
         }
-
     }
 
     static class SavedState extends BaseSavedState {
