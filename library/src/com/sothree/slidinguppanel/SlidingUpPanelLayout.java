@@ -623,7 +623,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
     /**
      * Sets whether or not the main content is clipped to the top of the panel
      *
-     * @param overlayed
+     * @param clip
      */
     public void setClipPanel(boolean clip) {
         mClipPanel = clip;
