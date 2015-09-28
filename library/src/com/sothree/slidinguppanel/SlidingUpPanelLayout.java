@@ -86,7 +86,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
     private int mCoveredFadeColor = DEFAULT_FADE_COLOR;
 
     /**
-     * Default parallax length of the main view
+     * Default paralax length of the main view
      */
     private static final int DEFAULT_PARALLAX_OFFSET = 0;
 
@@ -111,7 +111,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
     private int mShadowHeight = -1;
 
     /**
-     * Parallax offset
+     * Paralax offset
      */
     private int mParallaxOffset = -1;
 
@@ -479,7 +479,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
     }
 
     /**
-     * @return The current parallax offset
+     * @return The current paralax offset
      */
     public int getCurrentParallaxOffset() {
         // Clamp slide offset at zero for parallax computation;
@@ -623,7 +623,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
     /**
      * Sets whether or not the main content is clipped to the top of the panel
      *
-     * @param clip
+     * @param overlayed
      */
     public void setClipPanel(boolean clip) {
         mClipPanel = clip;
@@ -1066,17 +1066,16 @@ public class SlidingUpPanelLayout extends ViewGroup {
             }
         }else if (mScrollableView instanceof RecyclerView && ((RecyclerView) mScrollableView).getChildCount() > 0) {
             RecyclerView rv = ((RecyclerView) mScrollableView);
-            if (rv.getAdapter() == null) {
-                return 0;
-            }
+            RecyclerView.LayoutManager lm = rv.getLayoutManager();
+            if (rv.getAdapter() == null) return 0;
             if (mIsSlidingUp) {
                 View firstChild = rv.getChildAt(0);
                 // Approximate the scroll position based on the top child and the first visible item
-                return rv.getChildLayoutPosition(firstChild) * firstChild.getHeight() - firstChild.getTop();
+                return rv.getChildLayoutPosition(firstChild) * lm.getDecoratedMeasuredHeight(firstChild) - lm.getDecoratedTop(firstChild);
             } else {
                 View lastChild = rv.getChildAt(rv.getChildCount() - 1);
                 // Approximate the scroll position based on the bottom child and the last visible item
-                return (rv.getAdapter().getItemCount() - 1) * lastChild.getHeight() + lastChild.getBottom() - rv.getBottom();
+                return (rv.getAdapter().getItemCount() - 1) * lm.getDecoratedMeasuredHeight(lastChild) + lm.getDecoratedBottom(lastChild) - rv.getBottom();
             }
         } else {
             return 0;
