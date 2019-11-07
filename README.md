@@ -5,6 +5,17 @@
 
 **Note:** this is another fork of the original library by umano, which is not maintained anymore. We use this in [Blokada](https://blokada.org), so we will maintain it and merge the PR's of the upstream.
 
+Changelog after the fork:
+
+- 4.1.0
+  - Merged [PR749](https://github.com/umano/AndroidSlidingUpPanel/pull/917) for proper behaviour on quick tapping
+
+- 4.0.0
+  - Fork of hannesa2 fork that included some build config updates and deprecated method cleanup on top of the upstream
+
+
+Original README follows.
+
 Android Sliding Up Panel
 =========================
 
