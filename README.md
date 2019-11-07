@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/kar/AndroidSlidingUpPanel.svg?branch=master)](https://travis-ci.org/kar/AndroidSlidingUpPanel)
 [![](https://jitpack.io/v/kar/AndroidSlidingUpPanel.svg)](https://jitpack.io/#kar/AndroidSlidingUpPanel)
 
-**Note:** because maintainer currently does not merge PR's, I collect some of them
+**Note:** this is another fork of the original library by umano, which is not maintained anymore. We use this in [Blokada](https://blokada.org), so we will maintain it and merge the PR's of the upstream.
 
 Android Sliding Up Panel
 =========================
