@@ -1,7 +1,7 @@
 [![Badge](http://www.libtastic.com/static/osbadges/30.png)](http://www.libtastic.com/technology/30/)
 [![GitHub license](https://img.shields.io/badge/license-Apache%20Version%202.0-blue.svg)](https://github.com/sbrukhanda/fragmentviewpager/blob/master/LICENSE.txt)
-[![Build Status](https://travis-ci.org/hannesa2/AndroidSlidingUpPanel.svg?branch=master)](https://travis-ci.org/hannesa2/AndroidSlidingUpPanel)
-[![](https://jitpack.io/v/hannesa2/AndroidSlidingUpPanel.svg)](https://jitpack.io/#hannesa2/AndroidSlidingUpPanel)
+[![Build Status](https://travis-ci.org/kar/AndroidSlidingUpPanel.svg?branch=master)](https://travis-ci.org/kar/AndroidSlidingUpPanel)
+[![](https://jitpack.io/v/kar/AndroidSlidingUpPanel.svg)](https://jitpack.io/#kar/AndroidSlidingUpPanel)
 
 **Note:** because maintainer currently does not merge PR's, I collect some of them
 
@@ -24,10 +24,10 @@ allprojects {
 ```
 ```groovy
 dependencies {
-    implementation 'com.github.hannesa2:AndroidSlidingUpPanel:4.0.0' // Android X
+    implementation 'com.github.kar:AndroidSlidingUpPanel:4.0.0' // Android X
 
     // or
-    implementation 'com.github.hannesa2:AndroidSlidingUpPanel:3.5.0' // supportLib
+    implementation 'com.github.kar:AndroidSlidingUpPanel:3.5.0' // supportLib
 }
 ```
 
